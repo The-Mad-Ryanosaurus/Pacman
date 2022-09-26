@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="pacman.css">
+    <title>Canvas</title>
+
+    <style type="text/css">
+	
+    </style>
+      
+
+  </head>
+
+  <body>
+
+    <canvas id="canvasOne" width="1000" height="500"></canvas>
+
+    <script type="text/javascript">
+		// Gets a handle to the element with id canvasOne.
+    var canvas = document.getElementById("canvasOne");
+
+		// Set the canvas up for drawing in 2D.
+    var ctx = canvas.getContext("2d");
+
+		// Set the fill colour to bright red.
+    ctx.fillStyle = "rgb(100,0,0)";
+		
+		// Create a filled rectangle 
+    ctx.fillRect(20, 30, 100, 100);
+
+    // Add Text to the Canvas
+    
+    var text = 'Ryan Harte - G00338424';
+    ctx.fillStyle = "rgb(0,100,0)";
+
+    // Set text font and size
+    ctx.font = '25px Arial';
+	  
+		//The X coordinate where to start TEXT
+    var x = 300;
+
+    //The Y coordinate where to start TEXT 
+    var y = 50;
+
+    //Use the fillText method to draw the text.
+    ctx.fillText(text, x, y);
+
+    // Set the fill colour to bright blue for 2nd rectangle. RGBA allows for transparency too hence the 0.5 (half faded)
+    ctx.fillStyle = "rgba(0,0,100,0.5)";
+		
+		// Create a filled blue rectangle 
+    ctx.fillRect(40, 60, 100, 200);
+
+    //add a circle to the canvas
+    ctx.beginPath();
+    ctx.arc(400,200,100,5,7*Math.PI); 
+    // Fills in the color of the circle
+    ctx.fillStyle = 'yellow';
+    ctx.fill();
+    // fills in the outline color (border) of the circle
+    ctx.strokeStyle = 'purple';
+    ctx.stroke();
+
+    //add a 2nd circle to the canvas
+    ctx.beginPath();
+    ctx.arc(650,350,100,5,7*Math.PI); 
+    ctx.fillStyle = 'purple';
+    ctx.fill();
+    ctx.strokeStyle = 'red';
+    ctx.stroke();
+
+    // make a square and fit a circle in it
+    ctx.fillStyle = "rgba(0,0,100,0.5)";
+    ctx.fillRect(550, 250, 200, 200);
+
+    //pacman
+    ctx.beginPath();
+    ctx.arc(100, 400, 50, 0.2 * Math.PI, 1.8 * Math.PI, false);
+
+    // The mouth
+    // A line from the end of the arc to the centre
+    ctx.lineTo(100, 400);
+
+    // A line from the centre of the arc to the start
+    ctx.closePath();
+
+    // Fill the pacman shape with yellow
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    // Draw the black outline (optional)
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+
+    // Draw the eye
+    ctx.beginPath();
+    ctx.arc(100, 375, 5, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "rgb(0, 0, 0)";
+    ctx.fill();
+    
+    </script>
+
+  </body>
+
+</html>
